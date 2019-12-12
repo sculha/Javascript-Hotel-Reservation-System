@@ -1,0 +1,58 @@
+.progressbar, .steps ul{
+    list-style-type: none;
+    counter-reset: step;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 50px;
+    padding: 0;
+    
+     li{
+      float: left;
+      width: calc(100% / 3);
+      position: relative;
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+       
+       &::before{
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        height: 30px;
+        border: 2px solid $gray-light;
+        display: block;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        line-height: 27px;
+        background: white;
+        color: $gray-light;
+        text-align: center;
+        font-weight: bold;
+      }
+       
+       &:after{
+        content: '';
+        position: absolute;
+        width:100%;
+        height: 3px;
+        background: $gray-light;
+        top: 15px;
+        left: -50%;
+        z-index: -1;
+      }
+       
+       &:first-child:after{
+        content: none;
+       }
+       
+       &.active, &.current, &.done{
+         &:after{
+           background: $green;
+         }
+         &:before{
+            border-color: $green;
+            background: $green;
+            color: white;
+          }
+       }
+    }
+}

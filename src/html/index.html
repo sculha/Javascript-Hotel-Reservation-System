@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Reservation</title>
+
+    <link rel="stylesheet" href="assets/css/app.css">
+    
+</head>
+<body>
+
+  	<div class="reservation" id="reservation">
+		<div class="container">
+			<form class="form-horizontal" id="myform" autocomplete="off">
+			<!-- progressbar -->
+				<!-- <ul id="progressbar" class="progressbar">
+					<li class="active">Tarih</li>
+					<li>Oda Seçimi</li>
+					<li>Ödeme</li>
+				</ul> -->
+            
+                    <h3>Ödeme</h3>
+                    <section class="content" id="dateInfo">
+                        <div class="row">
+                            <div class="col-lg">
+                                <div class="form-group">
+                                    <label for="inCheckIn" class="control-label">Giriş Tarihi</label>
+                                    <input type="text" class="form-control dp" id="dpCheckIn" name="inCheckIn" placeholder="Check-in Date" required>
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div class="form-group">
+                                    <label for="inCheckOut" class="control-label">Çıkış Tarihi</label>
+                                    <input type="text" class="form-control dp" id="dpCheckOut" name="inCheckOut" placeholder="Check-out Date" required>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                
+                    <h3>Oda Seçimi</h3>
+                    <section class="content" id="roomInfo">
+                        <div class="row">
+                            <div class="col-lg">
+                                <p>Giriş Tarihi : <span class="labelCheckInDate"></span><p>
+                                <div class="radio-group form-group">
+                                    <label class="control-label">Oda Tipi</label>
+                                    <div class="radios">
+                                        <input type="radio" id="rbStandard" name="rbRoomType" required>
+                                        <label for="rbStandard" class="checkbox-label">Standard</label>
+                                    </div>
+                                    <div class="radios">
+                                        <input type="radio" id="rbDeluxe" name="rbRoomType" required>
+                                        <label for="rbDeluxe" class="checkbox-label">Deluxe</label>
+                                    </div>
+                                        <div class="radios">
+                                        <input type="radio" id="rbSuit" name="rbRoomType" required>
+                                        <label for="rbSuit" class="checkbox-label">Suit</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <p> Çıkış Tarihi : <span class="labelCheckOutDate"></span><p>
+                                <div class="radio-group form-group">
+                                    <label class="control-label">Manzara Seçimi</label>
+                                    <div class="radios">
+                                        <input type="radio" id="rbSea" name="rbSelectLandscape" required>
+                                        <label for="rbSea" class="checkbox-label">Deniz</label>
+                                    </div>
+                                    <div class="radios">
+                                        <input type="radio" id="rbLand" name="rbSelectLandscape" required>
+                                        <label for="rbLand" class="checkbox-label">Kara</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+            
+                    <h3>Ödeme</h3>
+                    <section class="content" id="paymentInfo">
+                        <div class="payment">
+                            <div class="payment-head">
+                                <div class="row">
+                                    <div class="col-lg">
+                                        <p>Giriş Tarihi : <span class="labelCheckInDate"></span><p>
+                                        <p>Oda Tipi : <span class="roomType"> </span></p>
+                                    </div>
+                                    <div class="col-lg">
+                                        <p> Çıkış Tarihi : <span class="labelCheckOutDate"></span><p>
+                                        <p>Manzara : <span class="selectLandscape"> </span></p>
+                                    </div>
+                                </div>
+                                <h3 class="title">Ödeme Yap</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg">
+                                    <div class="payment-body">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <label for="" class="label-control">Adınız - Soyadınız</label>
+                                                <input type="text" data-type="only-letters" id="cardName" name="cardName" class="form-control" placeholder="ADINIZ SOYADINIZ" required>
+                                            </div>
+                            
+                                            <div class="form-group">
+                                                <label for="" class="label-control">Kart Numarası</label>
+                                                <input type="text" id="cardNo" name="cardNo" data-type="only-numbers" data-type="cardNo" class="form-control" placeholder="0000 0000 0000 0000" required>
+                                            </div>
+                            
+                                            <div class="row">
+                                                <div class="col-lg col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="" class="label-control">Son Kullanma Tarihi</label>
+                                                        <div class="row">
+                                                            <div class="col-sm">
+                                                                <select name="cardMonth" id="cardMonth" class="select form-control" required>
+                                                                    <option value="-1" selected disabled>Ay</option>
+                                                                </select>
+                                                            </div>
+                                    
+                                                            <div class="col-sm">
+                                                                <select name="cardYear" id="cardYear" class="select form-control" required>
+                                                                    <option value="-1" selected disabled>Yıl</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="cvvCode" class="label-control">Güvenlik Kodu</label>
+                                                        <input type="password" id="cvvCode" name="cvvCode" maxlength="3" data-type="only-letters" class="form-control" placeholder="***" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                        
+                                            <div class="form-group">
+                                                <div class="checkboxes">
+                                                    <input type="checkbox" name="chkPaymentProcess" id="chkPaymentProcess" required>
+                                                    <label for="chkPaymentProcess" class="checkbox-label" required>Ödeme işlemini Kabul ediyorum.</label>
+                                                </div>
+                                                <div class="checkboxes">
+                                                    <input type="checkbox" name="chkContract" id="chkContract" required>
+                                                    <label for="chkContract" class="checkbox-label" required><a href="#" data-toggle="modal" data-target="#modalContract">Sözleşmeyi</a> okudum, kabul ediyorum.</label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+    
+                                <div class="col-lg">
+                                    <div class="credit-card">
+                                        <div class="flip">
+                                            <div class="front">
+                                                <div class="strip-bottom"></div>
+                                                <div class="strip-top"></div>
+                                            
+                                                <div class="chip">
+                                                    <div class="chip-line"></div>
+                                                    <div class="chip-line"></div>
+                                                    <div class="chip-line"></div>
+                                                    <div class="chip-line"></div>
+                                                    <div class="chip-main"></div>
+                                                </div>
+                                            
+                                                <div class="card-number">
+                                                    <p class="section">0000 0000 0000 0000</p>
+                                                </div>
+    
+                                                <div class="end">
+                                                    <p class="end-text">
+                                                        <span class="card-month">00</span> / <span class="card-year">00</span>
+                                                    </p>
+                                                </div>
+                                                <div class="card-holder card-name">
+                                                    <p>İSİM SOYİSİM</p>
+                                                </div>
+                                                <div class="master">
+                                                    <div class="circle master-red"></div>
+                                                    <div class="circle master-yellow"></div>
+                                                </div>
+                                            </div>
+                                            <div class="back">
+                                                <div class="strip-black"></div>
+                                                <div class="ccv">
+                                                    <label>ccv</label>
+                                                    <p>123</p>
+                                                </div>
+                                                <div class="terms">
+                                                    <p>This card is property of Monzo Bank, Wonderland. Misuse is criminal offence. If found, please return to Monzo Bank or to the nearest bank with MasterCard logo.</p>
+                                                    <p>Use of this card is subject to the credit card agreement.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+    
+                                    <div class="credit-card" style="display: none;">
+                                        <div class="c-card">
+                                            <div class="front face">
+                            
+                                                <div class="card-no">
+                                                    <p>KART NUMARASI</p>
+                                                    <p>0000 0000 0000 0000</p>
+                                                </div>
+                                                <div class="card-st">
+                                                    <div class="row">
+                                                        <div class="col-lg">
+                                                            <p>SON KULLANMA TARİHİ</p>
+                                                            <p><span class="card-month">00</span> / <span class="card-year">00</span></p>
+                                                        </div>
+                                                        <!-- <div class="col-lg">
+                                                            <p class="text-right">CVV CODE</p>
+                                                            <p class="cvv-code text-right">***</p>
+                                                        </div> -->
+                                                    </div>
+                                                </div>
+                                                <div class="card-name">
+                                                    <p>İSİM SOYİSİM</p>
+                                                </div>
+                                            </div>
+                                            <div class="back face center">
+                                                <div class="strip-black"></div>
+                                                <p class="cvv-code">***</p>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </section>
+            </form>
+      	</div>
+  	</div>
+      
+	<script src="assets/js/lib.min.js" charset="utf-8"></script>
+	<script src="assets/js/app.min.js" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+//-- Radio
+$checkbox-width: 14px;
+$checkbox-background: #fff;
+$checkbox-border: #ced4da;
+$checkbox-checked: #6f6f6f;
+$checkbox-background-checked: yellow;
+
+$width: 19px;
+
+.radios,
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+@mixin square ($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin vh() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  @include square(1px);
+}
+
+label {
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  @include vh();
+  &:focus {
+    + label {
+      &:before {
+      }
+    }
+  }
+  + label {
+    position: relative;
+    padding: 0 0 0 2rem;
+    margin-bottom: 1rem;
+    user-select: none;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 1px solid $checkbox-border;
+      background: $checkbox-background;
+      text-align: center;
+      transition: background 200ms ease-out;
+      @include square($width);
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      transform: scale(0);
+      transition: transform 200ms ease-out;
+    }
+  }
+}
+
+input[type="checkbox"] {
+  + label {
+    &:after {
+      background-color: transparent;
+      content: "";
+      display: block;
+      position: absolute;
+      left: 6px;
+      top: 2px;
+      opacity: 0.1;
+      border-bottom: 2px solid $checkbox-checked;
+      border-right: 2px solid $checkbox-checked;
+      transform: rotate(45deg);
+      transition: border-color 0.3s ease;
+      @include square($width / 3, $width / 2);
+    }
+  }
+  &:checked {
+    + label {
+      &:before {
+        content: "";
+      }
+
+      &:after {
+        content: "";
+        opacity: 1;
+      }
+    }
+  }
+}
+
+input[type="radio"] {
+  + label {
+    &:before,
+    &:after {
+      border-radius: 50%;
+    }
+    &:after {
+      left: 3px;
+      top: 3px;
+      @include square($width / 100 * 70);
+    }
+  }
+  &:checked {
+    + label {
+      &:before {
+        animation: borderscale 300ms ease-in;
+      }
+      &:after {
+        background: $checkbox-checked;
+        transform: scale(1);
+      }
+    }
+  }
+}

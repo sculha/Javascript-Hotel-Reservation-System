@@ -1,0 +1,52 @@
+.payment{
+
+    &-head{
+        @include padding-tb(30px);
+        border-top: 1px solid $gray-lighter;
+        border-bottom: 1px solid $gray-lighter;
+        margin-bottom: 30px;
+
+        .title{
+            font-size: 24px;
+            font-weight: bold;
+            color: $green;
+        }
+    }
+
+    &-body{
+
+        #cardName{
+            text-transform: uppercase;
+        }
+        .checkboxes{
+
+            a{
+                &:hover{
+                    color: $gray;
+                }
+            }
+        }
+    }
+
+    &-successful, &-failed{
+        text-align: center;
+
+        img{
+            margin-bottom: 15px;
+        }
+
+        .title{
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        
+    }
+
+    .card{
+        border: none;
+        margin-bottom: 30px;
+    }
+}
+
+  

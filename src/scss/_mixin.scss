@@ -1,0 +1,21 @@
+@mixin padding-lr($left, $right:$left) {
+    padding-left: $left;
+    padding-right: $right;
+}
+@mixin padding-tb($top, $bottom:$top) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+}
+@mixin margin-lr($left, $right:$left) {
+    margin-left: $left;
+    margin-right: $right;
+}
+@mixin margin-tb($top, $bottom:$top) {
+    margin-top: $top;
+    margin-bottom: $bottom;
+}
+
+@mixin square($w, $h:$w) {
+    width: $w;
+    height: $h;
+}

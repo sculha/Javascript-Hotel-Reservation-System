@@ -1,0 +1,21 @@
+# Dirs
+.idea/
+.settings/
+nbproject/
+_/
+
+# Files
+Thumbs.db
+.DS_Store
+.project
+*.zip
+*.7z
+*~
+*-
+
+# Build & Bundle
+node_modules/
+build/*
+dist/
+**/**/*.css.map
+.sass-cache/
