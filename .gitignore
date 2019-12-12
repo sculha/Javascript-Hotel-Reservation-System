@@ -16,6 +16,5 @@ Thumbs.db
 # Build & Bundle
 node_modules/
 build/*
-dist/
 **/**/*.css.map
 .sass-cache/
